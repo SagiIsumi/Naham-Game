@@ -1,0 +1,194 @@
+class nhaamgame{  
+    field Draw_mon draw;
+    field int type_mon;
+    field int summon;
+    field int m1;
+    field int m2;
+    field int m3;
+    field int m4;
+    field int m5;
+    field int m6;
+    field int rm1;
+    field int rm2;
+    field int rm3;
+    field int rm4;
+    field int rm5;
+    field int rm6;
+    field int boss_count;
+    field int jump;
+    field int attack;
+    field int remainder;
+    field int final;
+    field boolean exit;
+    field int over;
+    constructor nhaamgame new (){
+        let m1 =0;
+        let m2 =0;
+        let m3 =0;
+        let m4 =0;
+        let m5 =0;
+        let m6 =0;
+        let final=0;
+        let boss_count=0;
+        let exit =false;
+        let jump =0;
+        let attack =0;
+        let draw = Draw_mon.new();
+        do nhaam.new(4801);
+	do draw.repair();
+        return this;
+    }
+    method void moveall(){        
+        if (~(jump=0)){
+            let jump=draw.Jump();
+        }
+
+        if(~(attack=0)){
+            let attack=draw.Attack();
+        }
+        if (m3=1){
+            let rm3=draw.mon3(22);
+	        if(rm3=0){let m3=0;}
+            if(rm3=18){let summon=0;}
+        }
+        if (m6=1){
+            let rm6=draw.mon6(22);
+	        if(rm6=0){let m6=0;}
+            if(rm6=18){let summon=0;}
+        }
+        if (m1=1){
+            let rm1=draw.mon1(6879);
+	        if(rm1=0){let m1=0;}
+            if(rm1=27){let summon=0;}
+        }
+        let rm1=draw.rebounce(1);
+        if(rm1=1){do draw.nhaam_attack1();}
+        if (m2=1){
+            let rm2=draw.mon2(6879);
+	        if(rm2=0){let m2=0;}
+            if(rm2=26){let summon=0;}
+        }
+        
+        if (m4=1){
+            let rm4=draw.mon4(6879);
+	        if(rm4=0){let m4=0;}
+            if(rm4=26){let summon=0;}
+        }
+        let rm4=draw.rebounce(4);
+        if(rm4=1){do draw.nhaam_attack2();}
+        if (m5=1){
+            let rm5=draw.mon5(6879);
+	        if(rm5=0){let m5=0;}
+            if(rm5=27){let summon=0;}
+        }
+        if (boss_count=12){let final=draw.final();}
+        if(final=1){
+            do draw.Zena();
+        }
+        if(boss_count<18){do Sys.wait(85);}
+        if(boss_count>17){
+            if(boss_count<41){
+                do Sys.wait(77);
+            }
+        }
+        if(boss_count>40){do Sys.wait(69);}
+        let over=draw.Over();
+        if(~(over=0)){let exit=true;}
+        return;
+    }
+    method int Report(){return over;}
+    method int Remainder(int x, int y){
+        var int a;
+        let a = Math.divide(x, y);
+        let a = Math.multiply(a, y);
+        let remainder = (x - a) + 1;
+        return remainder;
+    }
+    method void run(){
+        var char key;
+        var int last;
+        var int random;
+        var int op_node;
+        let op_node=50;
+        let last =0;
+        let summon =0;
+        let random = 11000;
+        while (~exit){
+            let key = Keyboard.keyPressed();
+            do moveall();
+	    if (random>20000){let random=random-8000;}
+            if (key = 32){
+                if (jump = 0){
+                    if(attack=0){
+                        let jump = 1;
+                        let op_node = Remainder(random,12);
+                        let op_node=Math.multiply(op_node,31);
+                        let random = (random + op_node)-59;
+                    }
+                }
+            }
+            if (key = 90){
+                if (attack = 0){
+                    if(jump=0){
+                        let attack = 1;
+                        let op_node = Remainder(random,7);
+                        let op_node=Math.multiply(op_node,77);
+                        let random = (random + op_node)+44;
+                    }
+                }
+            }
+            let random = random + op_node;
+            if (summon = 0){
+                if (random > 12000){
+                    let type_mon = Remainder(random, 3);
+                    if(last=type_mon){let type_mon=type_mon+3;}
+                    let last =type_mon;
+                    if(type_mon=3){let m1=1;}
+                    if(type_mon=2){let m2=1;}
+                    if(type_mon=1){let m3=1;}
+                    if(type_mon=6){let m4=1;}
+                    if(type_mon=5){let m5=1;}
+                    if(type_mon=4){let m6=1;}
+                    let random = Math.divide(random,20);
+                    let summon = 1;
+                    let boss_count = boss_count + 1;
+                }
+            }
+            if (type_mon = 1){
+                let op_node = Remainder(random, 7);
+                let op_node = Math.divide(2914, op_node);
+                let random = (random + op_node)+1;
+            }
+	        if (type_mon = 2){
+                let op_node = Remainder(random, 8);
+                let op_node=op_node+10;
+                let op_node = Math.multiply(op_node, 7);
+                let random = (random + op_node) + 67;
+            }
+            if (type_mon = 3){
+                let op_node = Remainder(random, 15);
+                let op_node = Math.multiply(37, op_node);
+                let random = (random + op_node) + 224;
+            }
+            if (type_mon = 4){
+                let op_node = Remainder(random, 7);
+                let op_node = Math.divide(2417, op_node);
+                let random = random + op_node;
+            }
+	        if (type_mon = 5){
+                let op_node = Remainder(random, 8);
+                let op_node=op_node+9;
+                let op_node = Math.multiply(op_node, 12);
+                let random = (random + op_node) + 139;
+            }
+            if (type_mon = 6){
+                let op_node = Remainder(random, 3);
+                let op_node = Math.divide(1020, op_node);
+                let random = (random + op_node) + 324;
+            }
+            
+        }
+        return;
+    }
+}
+

@@ -1,0 +1,748 @@
+class Draw_mon{
+    field int mon1_count;
+    field int mon2_count;
+    field int mon3_count;
+    field int mon4_count;
+    field int mon5_count;
+    field int mon6_count;
+    field int jc;
+    field int ac;
+    field int z_count;
+    field int Boss;
+    field int bounce1;
+    field int bounce2;
+    field int attackpoint;
+    field int count1;
+    field int count2;
+    field int nhaam_now;
+    field int direct;
+    field int m_x;
+    field int m_y;
+    field background bg;
+    field int z_damage;
+    field int double;
+    field int Zena_life;
+    field int life_now;
+    field int f_report;
+    constructor Draw_mon new(){
+        let mon1_count=0;
+        let mon2_count=0;
+        let mon3_count=0;
+        let mon4_count=0;
+        let mon5_count=0;
+        let mon6_count=0;
+        let z_damage=0;
+	    let jc =0;
+        let ac= 0;
+        let Boss=0;
+        let double=1;
+        let attackpoint=0;
+        let bounce1=0;
+        let bounce2=0;
+        let count1=0;
+        let count2=0;
+        let z_count=0;
+        let Zena_life=8;
+        let f_report =0;
+        let bg = background.setting(5);
+        return this;
+    }
+    method void erase(int x,int y,int xsize,int ysize) {
+        do Screen.setColor(false);
+        do Screen.drawRectangle(x, y, x + xsize, y + ysize);
+        do Screen.setColor(true);
+        return;
+    }
+    method void locate(int addr,int p){
+        var int x;
+        var int y;
+        if (p=1){let x=32-mon1_count;}
+        if (p=2){let x=32-mon2_count;}
+        if (p=3){let x=30-mon3_count;}
+        if (p=4){let x=32-mon4_count;}
+        if (p=5){let x=32-mon5_count;}
+        if (p=6){let x=30-mon6_count;}
+	    if (p=7){let x=31-mon1_count;}
+        if (p=8){let x=31-mon2_count;}
+        if (p=9){let x=29-mon3_count;}
+        if (p=10){let x=31-mon4_count;}
+        if (p=11){let x=31-mon5_count;}
+        if (p=12){let x=29-mon6_count;}
+        let x=Math.multiply(x,16);
+        let y=Math.divide(addr,32);
+        do erase(x,y,31,31);
+	return;
+    }
+    method void nhaam(){
+        if(jc<2){
+            let nhaam_now=1;
+        }
+        if(jc>8){
+            let nhaam_now=1;
+        }
+        if(jc>3){
+            if(jc<9){
+            	let nhaam_now=2;
+		}
+        }
+        return;
+    }
+    method int rebounce(int x){ 
+        var int a;
+        if(x=1){let a=bounce1;}
+        if(x=4){let a=bounce2;}
+        return a;
+    }
+    method void counter(int x,int y){
+        do Screen.drawLine(x+7,y,x+14,y);
+        do Screen.drawLine(x+5,y+1,x+16,y+1);
+        do Screen.drawLine(x+3,y+2,x+18,y+2);
+        do Screen.drawLine(x+2,y+3,x+19,y+3);
+        do Screen.drawLine(x+2,y+4,x+19,y+4);
+        do Screen.drawLine(x+1,y+5,x+20,y+5);
+        do Screen.drawLine(x+1,y+6,x+20,y+6); 
+        do Screen.drawLine(x,y+7,x+21,y+7);
+        do Screen.drawLine(x,y+8,x+21,y+8);
+        do Screen.drawLine(x,y+9,x+21,y+9); 
+        do Screen.drawLine(x,y+10,x+21,y+10);
+        do Screen.drawLine(x,y+11,x+20,y+11);
+        do Screen.drawLine(x,y+12,x+20,y+12);
+        do Screen.drawLine(x+1,y+13,x+20,y+13);  
+        do Screen.drawLine(x+1,y+14,x+19,y+14);
+        do Screen.drawLine(x+2,y+15,x+18,y+15);
+        do Screen.drawLine(x+3,y+16,x+18,y+16);
+        do Screen.drawLine(x+4,y+17,x+16,y+17);
+        do Screen.drawLine(x+6,y+18,x+14,y+18);
+	return;    
+    }
+    method void nhaam_attack1(){
+        let m_x=Math.multiply(16,count1);
+        let m_y=Math.multiply(5,count1);
+        if(Boss=0){
+            if (count1=0){do counter(90,198);}
+            if (count1<26){
+                if(count1>0){
+                    do Screen.setColor(false);
+                    do counter(74+m_x,203-m_y);
+                    do Screen.setColor(true);
+                    do Screen.drawLine(421,100,511,105);
+                    do Screen.drawLine(421,99,511,104);
+                    do counter(90+m_x,198-m_y);
+                }
+            }
+            if (count1=26){
+                do Screen.setColor(false);
+                do counter(74+m_x,203-m_y);
+                do Screen.setColor(true);
+                let bounce1=0;
+                let count1=(-1);
+            }
+        }
+        if(Boss=1){
+            if (count1=0){do counter(90,198);}
+            if (count1<21){
+                if(count1>0){
+                    do Screen.setColor(false);
+                    do counter(74+m_x,203-m_y);
+                    do Screen.setColor(true);
+                    do counter(90+m_x,198-m_y);
+                }
+            }
+            if (count1=21){
+                do Screen.setColor(false);
+                do counter(74+m_x,203-m_y);
+                do Screen.setColor(true);
+                do boss.part1(986);
+                do boss.part2(986);
+                do boss.part3(986);
+                let Zena_life=Zena_life-1;
+                let bounce1=0;
+                let count1=(-1);
+            }
+        }
+        let count1=count1+1;
+        return;
+    }
+    method void nhaam_attack2(){
+        let m_x=Math.multiply(16,count2);
+        let m_y=Math.multiply(5,count2);
+        if(Boss=0){
+            if (count2=0){do counter(90,198);}
+            if (count2<26){
+                if(count2>0){
+                    do Screen.setColor(false);
+                    do counter(74+m_x,203-m_y);
+                    do Screen.setColor(true);
+                    do Screen.drawLine(421,100,511,105);
+                    do Screen.drawLine(421,99,511,104);
+                    do counter(90+m_x,198-m_y);
+                }
+            }
+            if (count2=26){
+                do Screen.setColor(false);
+                do counter(74+m_x,203-m_y);
+                do Screen.setColor(true);
+                let bounce2=0;
+                let count2=(-1);
+            }
+        }
+        if(Boss=1){
+            if (count2=0){do counter(90,198);}
+            if (count2<21){
+                if(count2>0){
+                    do Screen.setColor(false);
+                    do counter(74+m_x,203-m_y);
+                    do Screen.setColor(true);
+                    do counter(90+m_x,198-m_y);
+                }
+            }
+            if (count2=21){
+                do Screen.setColor(false);
+                do counter(74+m_x,203-m_y);
+                do Screen.setColor(true);
+                do boss.part1(986);
+                do boss.part2(986);
+                do boss.part3(986);
+                let Zena_life=Zena_life-1;
+                let bounce2=0;
+                let count2=(-1);
+            }
+        }
+        let count2=count2+1;
+        return;
+    }
+    method int mon1(int x){
+        if (mon1_count=0) {
+            do slime.front(x);
+        }
+	    if (mon1_count=1){
+            do erase(479,214,31,31);
+            do bg.redrawcastle(jc,ac);
+            do slime.front(x-1);
+            do slime.back(x);
+	    }
+        if (mon1_count>1){
+            if(mon1_count<32){
+                let x= x - mon1_count;
+                do locate(x+1,1);
+                do bg.redrawcastle(jc,ac);
+                do slime.front(x);
+                do slime.back(x+1);
+            }
+        }
+        if(mon1_count=32){
+            do erase(0,214,31,31);
+            do bg.redrawcastle(jc,ac);
+            do slime.back(6848);
+        }
+        if(mon1_count=33){
+            do erase(0,214,15,31);
+            do bg.redrawcastle(jc,ac);
+            let mon1_count=(-1);
+        }
+        if (mon1_count=27){
+            if (attackpoint=1){
+                do locate(x+1,7);
+                do nhaam_kick.new(4801);
+                do shoe.new(6789);
+                do bg.redrawcastle(jc,ac);
+	    	if(z_count>10){
+	    		if(z_count<100){let z_count=z_count+18;}
+	    	}
+                let bounce1=1;
+                let mon1_count=(-1);
+            }
+        }
+        if (mon1_count>28){
+            if(mon1_count<32){
+                do nhaam();
+                if(nhaam_now=1){
+                    do bg.damage();
+                    do locate(x+1,7);
+                    if(attackpoint=0){
+                        if(jc=0){
+                            do nhaam.new(4801);
+                        } 
+                    }
+                    if (jc>9){do nhaam.new(4801);}
+                    if(attackpoint=1){
+                        if (jc=0){do nhaam_kick.new(4801);}
+                        if (jc>9){do shoe.new(6789);}
+                    }
+                    do bg.redrawcastle(jc,ac);
+                    let mon1_count=(-1);
+                }
+            }
+        }
+        let mon1_count=mon1_count+1;
+        return mon1_count;
+    }
+    method int mon2(int x){
+        if (mon2_count=0) {
+            do rock.front(x);
+        }
+	    if (mon2_count=1){
+            do erase(479,214,31,31);
+            do bg.redrawcastle(jc,ac);
+            do rock.front(x-1);
+            do rock.back(x);
+	    }
+        if (mon2_count>1){
+            if(mon2_count<32){
+                let x= x - mon2_count;
+                do locate(x+1,2);
+                do bg.redrawcastle(jc,ac);
+                do rock.front(x);
+                do rock.back(x+1);
+            }
+        }
+        if(mon2_count=32){
+            do erase(0,214,31,31);
+            do bg.redrawcastle(jc,ac);
+            do rock.back(6848);
+        }
+        if(mon2_count=33){
+	    if(z_count>10){
+	    	if(z_count<100){let z_count=z_count+11;}
+	    }
+            do erase(0,214,15,31);
+            do bg.redrawcastle(jc,ac);
+            let mon2_count=(-1);
+        }
+        if (mon2_count=27){
+            if (attackpoint=1){
+                do bg.damage();
+                do locate(x+1,8);
+                do nhaam_kick.new(4801);
+                do shoe.new(6789);
+                do bg.redrawcastle(jc,ac);
+                let mon2_count=(-1);
+            }
+        }
+        if (mon2_count>28){
+            if(mon2_count<32){
+                do nhaam();
+                if(nhaam_now=1){
+                    do bg.damage();
+                    do locate(x+1,8);
+                    if(attackpoint=0){
+                        if(jc=0){
+                            do nhaam.new(4801);
+                        } 
+                    }
+                    if (jc>9){do nhaam.new(4801);}
+                    if(attackpoint=1){
+                        if (jc=0){do nhaam_kick.new(4801);}
+                        if (jc>9){do shoe.new(6789);}
+                    }
+                    do bg.redrawcastle(jc,ac);
+                    let mon2_count=(-1);
+                
+                }
+            }
+        }
+        let mon2_count=mon2_count+1;
+        return mon2_count;
+    }
+    method int mon3(int x){
+        var int node;
+        var int node2;
+        if (mon3_count=0) {
+            do bat.lower(x);
+        }
+	    if (mon3_count>1){
+            if (mon3_count<7){
+                let node2=mon3_count-2;
+                let node=node2*512;
+                let x = (x+node)+1024;
+                let node = x;
+                do erase(351,16*node2,31,31);
+                do bg.redrawcastle(jc,ac);
+                do bat.upper(x-512);
+                do bat.lower(x);
+            }
+	    }
+        if (mon3_count>6){
+            if(mon3_count<29){
+                let x= 2589 - mon3_count;
+                do locate(x+1,3);
+                do bg.redrawcastle(jc,ac);
+                do bat.upper(x);
+                do bat.lower(x+512);
+            }
+        }
+        if(mon3_count=29){
+            do erase(16,80,31,31);
+            do bg.redrawcastle(jc,ac);
+            do bat.back(2560);
+        }
+        if(mon3_count=30){
+	    if(z_count>10){
+	    	if(z_count<92){let z_count=z_count+22;}
+	    }
+            do erase(0,80,15,31);
+            do bg.redrawcastle(jc,ac);
+            let mon3_count=(-1);
+        }
+        if (mon3_count>24){
+            if(mon3_count<29){
+                do nhaam();
+                if(nhaam_now=2){
+                    do bg.damage();
+                    do locate(x+1,9);
+                    if (jc>4){
+                        if(jc<7){
+                            do nhaam.new(2753);
+                        }
+                    }
+                    do bg.redrawcastle(jc,ac);
+                    let mon3_count=(-1);
+                }
+            }
+        }
+        let mon3_count=mon3_count+1;
+        return mon3_count;
+    }
+    method int mon4(int x){
+        if (mon4_count=0) {
+            do slime.front(x);
+        }
+	    if (mon4_count=1){
+            do erase(479,214,31,31);
+            do bg.redrawcastle(jc,ac);
+            do slime.front(x-1);
+            do slime.back(x);
+	    }
+        if (mon4_count>1){
+            if(mon4_count<32){
+                let x= x - mon4_count;
+                do locate(x+1,4);
+                do bg.redrawcastle(jc,ac);
+                do slime.front(x);
+                do slime.back(x+1);
+            }
+        }
+        if(mon4_count=32){
+            do erase(0,214,31,31);
+            do bg.redrawcastle(jc,ac);
+            do slime.back(6848);
+        }
+        if(mon4_count=33){
+            do erase(0,214,15,31);
+            do bg.redrawcastle(jc,ac);
+            let mon4_count=(-1);
+        }
+        if (mon4_count=27){
+            if (attackpoint=1){
+                do locate(x+1,10);
+                do nhaam_kick.new(4801);
+                do shoe.new(6789);
+                do bg.redrawcastle(jc,ac);
+		if(z_count>10){
+	    		if(z_count<90){let z_count=z_count+15;}
+		}
+                let bounce2=1;
+                let mon4_count=(-1);
+            }
+        }
+        if (mon4_count>28){
+            if(mon4_count<32){
+                do nhaam();
+                if(nhaam_now=1){
+                    do bg.damage();
+                    do locate(x+1,10);
+                    if(attackpoint=0){
+                        if(jc=0){
+                            do nhaam.new(4801);
+                        } 
+                    }
+                    if (jc>9){do nhaam.new(4801);}
+                    if(attackpoint=1){
+                        if (jc=0){do nhaam_kick.new(4801);}
+                        if (jc>9){do shoe.new(6789);}
+                    }
+                    do bg.redrawcastle(jc,ac);
+                    let mon4_count=(-1);
+                }
+            }
+        }
+        let mon4_count=mon4_count+1;
+        return mon4_count;
+    }
+    method int mon5(int x){
+        if (mon5_count=0) {
+            do rock.front(x);
+        }
+	    if (mon5_count=1){
+            do erase(479,214,31,31);
+            do bg.redrawcastle(jc,ac);
+            do rock.front(x-1);
+            do rock.back(x);
+	    }
+        if (mon5_count>1){
+            if(mon5_count<32){
+                let x= x - mon5_count;
+                do locate(x+1,5);
+                do bg.redrawcastle(jc,ac);
+                do rock.front(x);
+                do rock.back(x+1);
+            }
+        }
+        if(mon5_count=32){
+            do erase(0,214,31,31);
+            do bg.redrawcastle(jc,ac);
+            do rock.back(6848);
+        }
+        if(mon5_count=33){
+	    if(z_count>10){
+	    		if(z_count<100){let z_count=z_count+12;}
+		}
+            do erase(0,214,15,31);
+            do bg.redrawcastle(jc,ac);
+            let mon5_count=(-1);
+        }
+        if (mon5_count=27){
+            if (attackpoint=1){
+                do bg.damage();
+                do locate(x+1,11);
+                do nhaam_kick.new(4801);
+                do shoe.new(6789);
+                do bg.redrawcastle(jc,ac);
+                let mon5_count=(-1);
+            }
+        }
+        if (mon5_count>28){
+            if(mon5_count<32){
+                do nhaam();
+                if(nhaam_now=1){
+                    do bg.damage();
+                    do locate(x+1,11);
+                    if(attackpoint=0){
+                        if(jc=0){
+                            do nhaam.new(4801);
+                        } 
+                    }
+                    if (jc>9){do nhaam.new(4801);}
+                    if(attackpoint=1){
+                        if (jc=0){do nhaam_kick.new(4801);}
+                        if (jc>9){do shoe.new(6789);}
+                    }
+                    do bg.redrawcastle(jc,ac);
+                    let mon5_count=(-1);
+                }
+            }
+        }
+        let mon5_count=mon5_count+1;
+        return mon5_count;
+    }
+    method int mon6(int x){
+        var int node;
+        var int node2;
+        if (mon6_count=0) {
+            do bat.lower(x);
+        }
+	    if (mon6_count>1){
+            if (mon6_count<7){
+                let node2=mon6_count-2;
+                let node=node2*512;
+                let x = (x+node)+1024;
+                let node = x;
+                do erase(351,16*node2,31,31);
+                do bg.redrawcastle(jc,ac);
+                do bat.upper(x-512);
+                do bat.lower(x);
+            }
+	    }
+        if (mon6_count>6){
+            if(mon6_count<29){
+                let x= 2589 - mon6_count;
+                do locate(x+1,6);
+                do bg.redrawcastle(jc,ac);
+                do bat.upper(x);
+                do bat.lower(x+512);
+            }
+        }
+        if(mon6_count=29){
+	    if(z_count>10){
+	    	if(z_count<89){let z_count=z_count+30;}
+	    }
+            do erase(16,80,31,31);
+            do bg.redrawcastle(jc,ac);
+            do bat.back(2560);
+        }
+        if(mon6_count=30){
+            do erase(0,80,15,31);
+            do bg.redrawcastle(jc,ac);
+            let mon6_count=(-1);
+        }
+        if (mon6_count>24){
+            if(mon6_count<29){
+                do nhaam();
+                if(nhaam_now=2){
+                    do bg.damage();
+                    do locate(x+1,12);
+                    if (jc>4){
+                        if(jc<7){
+                            do nhaam.new(2753);
+                        }
+                    }
+                    do bg.redrawcastle(jc,ac);
+                    let mon6_count=(-1);
+                }
+            }
+        }
+        let mon6_count=mon6_count+1;
+        return mon6_count;
+    }
+
+    method int Jump(){
+        var int node;
+        if(jc=0){let direct=1;}
+        if (direct=1){
+            let node = Math.multiply(jc,16);
+            do erase(16,150-node,64,96);
+            let node = jc+1;
+            let node =Math.multiply(node,512);
+            do nhaam.new(4801-node);
+            if (jc=4){let direct =3;}        
+        }
+        if (jc=7){let direct = 2;}
+	    if(direct=2){
+            let node = jc-7;
+            let node=Math.multiply(node,16);
+            do erase(16,70+node,64,96);
+            let node =jc-6;
+            let node =Math.multiply(node,512);
+            do nhaam.new(2753+node);
+            if (jc=10){let direct =4;}
+        }
+        
+        if(jc=11){let jc =(-1);}
+        let jc = jc +1;
+        return jc;
+    }
+    method int Attack(){
+        let ac =ac+1;
+        if(ac=1){
+            let attackpoint=1;
+            do erase(16,150,64,96);
+            do nhaam_kick.new(4801);
+            do shoe.new(6789);
+        }
+        if(ac=5){
+            let attackpoint=0;
+            do erase(16,150,64,96);
+            do erase(80,212,15,15);
+            do nhaam.new(4801);
+            
+        }
+        if(ac=7){let ac=0;}
+        
+        return ac;
+    }
+     method int final(){
+        let Boss=1;
+        return Boss;
+    }
+    method int double_jdg(){
+        var int a;
+        let a=0;
+        if (mon1_count>28){
+            if(mon1_count<32){
+                let a=1;
+            }
+        }
+        if (mon2_count>28){
+            if(mon2_count<32){
+                let a=1;
+            }
+        }
+        if (mon4_count>28){
+            if(mon4_count<32){
+                let a=1;
+            }
+        }
+        if (mon5_count>28){
+            if(mon5_count<32){
+                let a=1;
+            }
+        }
+        return a;
+    }
+    method void Zattack(){
+        if (z_count>120){
+		if(z_count<126){do circle.new(400,106);}
+	}
+	if (z_count=126){
+		do Screen.setColor(false);
+		do circle.new(400,106);
+		do Screen.setColor(true);
+	}
+        if (z_count>129){
+            do Screen.drawLine(5,246,400,110);
+            do Screen.drawLine(6,246,400,111);
+            do Screen.drawLine(7,246,400,111);
+            do Screen.drawLine(8,246,400,112);
+            do Screen.drawLine(9,246,400,112);
+            do Screen.drawLine(10,246,400,113);
+            do Screen.drawLine(11,246,400,114);
+            if(z_damage=0){
+                if (jc=0){
+                    do bg.damage();
+                    let z_damage=1;
+                }
+            }
+	    if(z_damage=0){
+                if (jc>8){
+                    do bg.damage();
+                    let z_damage=1;
+                }
+	    }
+        }
+        if (z_count>131){
+            let z_count=z_count-120;
+            let z_damage=0;
+            do Screen.setColor(false);
+            do Screen.drawLine(5,246,400,110);
+            do Screen.drawLine(6,246,400,111);
+            do Screen.drawLine(7,246,400,111);
+            do Screen.drawLine(8,246,400,112);
+            do Screen.drawLine(9,246,400,112);
+            do Screen.drawLine(10,246,400,113);
+            do Screen.drawLine(11,246,400,114);
+	    do Screen.setColor(true);
+            do bg.redrawcastle(jc,ac);
+            if(ac=1){
+                do nhaam_kick.new(4801);
+                do shoe.new(6789);
+            }
+        }
+        return;
+    }
+    method void Zena(){
+        if (z_count=0){do boss.part1(986);}
+        if (z_count=2){do boss.part2(986);}
+        if (z_count=4){do boss.part3(986);}
+        let double=double_jdg();
+        if(double=1){
+            if(z_count<151){
+                if(z_count>145){
+                    let z_count=z_count-1;
+                }
+            }
+        }
+        if(z_count>120){do Zattack();}
+        let z_count=z_count+1;
+	return;
+    }
+    method void repair(){
+	do bg.redrawcastle(jc,ac);
+	return;
+	}
+    method int Over(){
+        let life_now=bg.report();
+        if(life_now=0){let f_report=1;}
+        if(Zena_life=0){let f_report=2;}
+        return f_report;
+    }
+}

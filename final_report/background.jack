@@ -1,0 +1,176 @@
+class background{
+    field int life;
+    constructor background setting(int num){
+        let life = num;
+        do lifecounter(life);
+	    do drawcastle();
+        do Screen.drawLine(0,247,511,247);
+        do Screen.drawLine(0, 248, 511, 248);
+        return this;
+    }
+    method void drawcastle(){
+        do Screen.drawLine(0, 230, 140, 215);
+        do Screen.drawLine(141, 214, 280, 204);
+        do Screen.drawLine(0, 229, 140, 214);
+        do Screen.drawLine(141, 213, 280, 203);
+        do Screen.drawLine(281, 145, 281, 218);
+        do Screen.drawLine(282, 145, 282, 218);
+        do Screen.drawLine(282, 218, 400, 228);
+        do Screen.drawLine(281,219,400,229);
+        do Screen.drawLine(401,228,511,228);
+        do Screen.drawLine(401,229,511,229);
+        do Screen.drawLine(281,144,311,144);
+        do Screen.drawLine(281,143,311,143);
+        do Screen.drawLine(311,144,311,84);
+        do Screen.drawLine(312,144,312,84);
+        do Screen.drawLine(342,124,342,84);
+        do Screen.drawLine(343,124,343,84);
+        do Screen.drawLine(312,84,327,64);
+        do Screen.drawLine(327,64,342,84);
+        do Screen.drawLine(311,83,327,63);
+        do Screen.drawLine(327,63,343,83);
+        do Screen.drawLine(344,124,384,124);
+        do Screen.drawLine(343,125,384,125);
+        do Screen.drawLine(384,124,384,39);
+        do Screen.drawLine(385,125,385,39);
+        do Screen.drawLine(420,100,420,39);
+        do Screen.drawLine(421,99,421,39);
+        do Screen.drawLine(380,38,425,38);
+        do Screen.drawLine(380,37,425,37);
+        do Screen.drawLine(379,38,399,0);
+        do Screen.drawLine(378,38,398,0);
+        do Screen.drawLine(426,38,406,0);
+        do Screen.drawLine(427,38,407,0);
+        do Screen.drawLine(421,100,511,105);
+        do Screen.drawLine(421,99,511,104);
+        do Screen.drawLine(80,85,80,68);
+        do Screen.drawLine(81,85,81,68);
+        do Screen.drawLine(0,55,81,68);
+        do Screen.drawLine(0,56,81,69);
+        do Screen.drawLine(80,85,311,121);
+        do Screen.drawLine(80,86,311,122);
+        do Screen.drawLine(327,63,327,18);
+        do Screen.drawLine(327,20,307,28);
+        do Screen.drawLine(327,36,307,28);
+        return;
+    }
+    method void redrawcastle(int b1,int b2){
+        var int node;
+        let node = 0;
+        do Screen.drawLine(0, 230, 140, 215);
+        do Screen.drawLine(141, 214, 280, 204);
+        do Screen.drawLine(0, 229, 140, 214);
+        do Screen.drawLine(141, 213, 280, 203);
+        do Screen.drawLine(281, 145, 281, 218);
+        do Screen.drawLine(282, 145, 282, 218);
+        do Screen.drawLine(282, 218, 400, 228);
+        do Screen.drawLine(281,219,400,229);
+        do Screen.drawLine(401,228,511,228);
+        do Screen.drawLine(401,229,511,229);
+        do Screen.drawLine(281,144,311,144);
+        do Screen.drawLine(281,143,311,143);
+        do Screen.drawLine(311,144,311,84);
+        do Screen.drawLine(312,144,312,84);
+        do Screen.drawLine(342,124,342,84);
+        do Screen.drawLine(343,124,343,84);
+        do Screen.drawLine(312,84,327,64);
+        do Screen.drawLine(327,64,342,84);
+        do Screen.drawLine(311,83,327,63);
+        do Screen.drawLine(327,63,343,83);
+        do Screen.drawLine(344,124,384,124);
+        do Screen.drawLine(343,125,384,125);
+        do Screen.drawLine(384,124,384,39);
+        do Screen.drawLine(385,125,385,39);
+        do Screen.drawLine(420,100,420,39);
+        do Screen.drawLine(421,99,421,39);
+        do Screen.drawLine(380,38,425,38);
+        do Screen.drawLine(380,37,425,37);
+        do Screen.drawLine(379,38,399,0);
+        do Screen.drawLine(378,38,398,0);
+        do Screen.drawLine(426,38,406,0);
+        do Screen.drawLine(427,38,407,0);
+        do Screen.drawLine(80,85,80,68);
+        do Screen.drawLine(81,85,81,68);
+        do Screen.drawLine(0,55,81,68);
+        do Screen.drawLine(0,56,81,69);
+        do Screen.drawLine(80,85,311,121);
+        do Screen.drawLine(80,86,311,122);
+        do Screen.drawLine(327,63,327,18);
+        do Screen.drawLine(327,20,307,28);
+        do Screen.drawLine(327,36,307,28);
+        do Screen.setColor(false);
+        if (b2>0){
+            if(b2<6){
+                do Screen.drawRectangle(50,222,53,224);
+		do Screen.drawLine(50,225,52,225);
+		do Screen.drawLine(79,221,82,221);
+		do Screen.drawLine(80,220,82,220);
+		do Screen.drawLine(81,219,83,219);
+		do Screen.drawLine(85,220,86,219);
+            }
+        }
+        if (b2=0){let node = 1;}
+        if (b2>5){let node = 1;}
+        if(b1=0){
+            if (node=1){
+                do Screen.drawLine(21,228,22,228);
+                do Screen.drawLine(21,227,22,227);
+                do Screen.drawLine(25,227,26,227);
+                do Screen.drawLine(25,226,26,226);
+                do Screen.drawLine(43,225,47,225);
+                do Screen.drawLine(43,224,47,224);
+            }
+        }
+        if(b1=11){
+            if (node=1){
+                do Screen.drawLine(21,228,22,228);
+                do Screen.drawLine(21,227,22,227);
+                do Screen.drawLine(25,227,26,227);
+                do Screen.drawLine(25,226,26,226);
+                do Screen.drawLine(43,225,47,225);
+                do Screen.drawLine(43,224,47,224);
+            }
+        }
+	    do Screen.setColor(true);
+        return;
+    }
+    method void drawheart(int x){
+        do Screen.drawPixel(x, 12);
+        do Screen.drawPixel(x+12, 12);
+        do Screen.drawLine(x, 11, x + 3, 8);
+        do Screen.drawLine(x + 4, 9, x + 6, 11);
+        do Screen.drawLine(x + 7, 10, x + 9, 8);
+        do Screen.drawLine(x + 10, 9, x + 12, 11);
+        do Screen.drawLine(x, 13, x + 6, 19);
+        do Screen.drawLine(x + 7, 18, x + 12, 13);
+        do Screen.drawLine(x, 10, x + 2, 8);
+        do Screen.drawLine(x + 4, 8, x + 6, 10);
+        do Screen.drawLine(x + 7, 9, x + 8, 8);
+        do Screen.drawLine(x + 10, 8, x + 12, 10);
+        do Screen.drawLine(x, 14, x + 6, 20);
+        do Screen.drawLine(x + 7, 19, x + 12, 14);
+        
+        return;
+    }
+    method void lifecounter(int hn){
+        var int loc_x;
+        let loc_x = 8;
+        do Screen.setColor(false);
+        do Screen.drawRectangle(7,4,100,20);
+        do Screen.setColor(true);
+        while (hn > 0){
+            do drawheart(loc_x);
+            let hn = hn - 1;
+            let loc_x = loc_x + 17;
+        }
+        return;
+    }
+    method void damage(){
+        let life = life - 1;
+        do lifecounter(life);
+        return;
+    }
+    method int report(){
+        return life;
+    }
+}

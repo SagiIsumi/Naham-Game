@@ -1,0 +1,114 @@
+class bat{
+  function void upper(int loc){
+      var int addr;
+      let addr=16384+loc;
+      do Memory.poke(addr+0,32);
+      do Memory.poke(addr+1,28672);
+      do Memory.poke(addr+32,48);
+      do Memory.poke(addr+33,11264);
+      do Memory.poke(addr+64,48);
+      do Memory.poke(addr+65,9728);
+      do Memory.poke(addr+96,40);
+      do Memory.poke(addr+97,4352);
+      do Memory.poke(addr+128,44);
+      do Memory.poke(addr+129,2176);
+      do Memory.poke(addr+160,36);
+      do Memory.poke(addr+161,2112);
+      do Memory.poke(addr+192,38);
+      do Memory.poke(addr+193,1120);
+      do Memory.poke(addr+224,194);
+      do Memory.poke(addr+225,1072);
+      do Memory.poke(addr+256,7939);
+      do Memory.poke(addr+257,-1008);
+      do Memory.poke(addr+288,2049);
+      do Memory.poke(addr+289,24592);
+      do Memory.poke(addr+320,1537);
+      do Memory.poke(addr+321,8208);
+      do Memory.poke(addr+352,386);
+      do Memory.poke(addr+353,6152);
+      do Memory.poke(addr+384,194);
+      do Memory.poke(addr+385,1544);
+      do Memory.poke(addr+416,-122);
+      do Memory.poke(addr+417,772);
+      do Memory.poke(addr+448,100);
+      do Memory.poke(addr+449,259);
+      do Memory.poke(addr+480,36);
+      do Memory.poke(addr+481,562);
+
+      return;
+   }
+  function void lower(int loc){
+      var int addr;
+      let addr=16384+loc;
+      do Memory.poke(addr+0,28);
+      do Memory.poke(addr+1,585);
+      do Memory.poke(addr+32,8);
+      do Memory.poke(addr+33,1177);
+      do Memory.poke(addr+64,8);
+      do Memory.poke(addr+65,1302);
+      do Memory.poke(addr+96,12);
+      do Memory.poke(addr+97,3632);
+      do Memory.poke(addr+128,4);
+      do Memory.poke(addr+129,32);
+      do Memory.poke(addr+160,4);
+      do Memory.poke(addr+161,32);
+      do Memory.poke(addr+192,4);
+      do Memory.poke(addr+193,7968);
+      do Memory.poke(addr+224,4);
+      do Memory.poke(addr+225,8416);
+      do Memory.poke(addr+256,32764);
+      do Memory.poke(addr+257,8224);
+      do Memory.poke(addr+288,20500);
+      do Memory.poke(addr+289,8208);
+      do Memory.poke(addr+320,8200);
+      do Memory.poke(addr+321,8208);
+      do Memory.poke(addr+352,8);
+      do Memory.poke(addr+353,5132);
+      do Memory.poke(addr+384,16);
+      do Memory.poke(addr+385,7172);
+      do Memory.poke(addr+416,16);
+      do Memory.poke(addr+417,5122);
+      do Memory.poke(addr+448,-16160);
+      do Memory.poke(addr+449,15361);
+      do Memory.poke(addr+480,16128);
+
+      return;
+   }
+   function void back(int loc){
+      var int addr;
+      let addr=16384+loc;
+      do Memory.poke(addr+0,28672);
+      do Memory.poke(addr+32,11264);
+      do Memory.poke(addr+64,9728);
+      do Memory.poke(addr+96,4352);
+      do Memory.poke(addr+128,2176);
+      do Memory.poke(addr+160,2112);
+      do Memory.poke(addr+192,1120);
+      do Memory.poke(addr+224,1072);
+      do Memory.poke(addr+256,-1008);
+      do Memory.poke(addr+288,24592);
+      do Memory.poke(addr+320,8208);
+      do Memory.poke(addr+352,6152);
+      do Memory.poke(addr+384,1544);
+      do Memory.poke(addr+416,772);
+      do Memory.poke(addr+448,259);
+      do Memory.poke(addr+480,562);
+      do Memory.poke(addr+512,585);
+      do Memory.poke(addr+544,1177);
+      do Memory.poke(addr+576,1302);
+      do Memory.poke(addr+608,3632);
+      do Memory.poke(addr+640,32);
+      do Memory.poke(addr+672,32);
+      do Memory.poke(addr+704,7968);
+      do Memory.poke(addr+736,8416);
+      do Memory.poke(addr+768,8224);
+      do Memory.poke(addr+800,8208);
+      do Memory.poke(addr+832,8208);
+      do Memory.poke(addr+864,5132);
+      do Memory.poke(addr+896,7172);
+      do Memory.poke(addr+928,5122);
+      do Memory.poke(addr+960,15361);
+
+      return;
+   }
+}

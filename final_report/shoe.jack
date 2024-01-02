@@ -1,0 +1,21 @@
+class shoe{
+  function void new(int loc){
+      var int addr;
+      let addr=16384+loc;
+      do Memory.poke(addr+0,960);
+      do Memory.poke(addr+32,624);
+      do Memory.poke(addr+64,584);
+      do Memory.poke(addr+96,655);
+      do Memory.poke(addr+128,650);
+      do Memory.poke(addr+160,585);
+      do Memory.poke(addr+192,590);
+      do Memory.poke(addr+224,800);
+      do Memory.poke(addr+256,416);
+      do Memory.poke(addr+288,216);
+      do Memory.poke(addr+320,103);
+      do Memory.poke(addr+352,51);
+      do Memory.poke(addr+384,30);
+
+      return;
+   }
+}

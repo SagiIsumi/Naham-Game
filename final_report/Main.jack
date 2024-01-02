@@ -1,0 +1,41 @@
+class Main {
+    function void main() {
+	var nhaamgame game;   
+    	var background Bg;
+    	var char start;
+	var String s;
+	var int over;
+    	let start =0;	
+    	let Bg= background.setting(0);
+    	while(start=0){
+        	let start=Keyboard.keyPressed();
+        	do Sys.wait(100);
+    	}
+    	let game = nhaamgame.new();
+	do game.run();
+	do Screen.clearScreen();
+	do Sys.wait(250);
+	let over=game.Report();
+	if(over=1){
+		do gameover.g(3848);
+		do gameover.a(3850);
+		do gameover.m(3852);
+		do gameover.e(3854);
+		do gameover.o(3856);
+		do gameover.v(3858);
+		do gameover.e(3860);
+		do gameover.r(3862);
+	}
+	if(over=2){
+		do gameover.v(3849);
+		do victory.i(3851);
+		do victory.c(3853);
+		do victory.t(3855);
+		do gameover.o(3857);
+		do gameover.r(3859);
+		do victory.y(3861);
+	}
+	return;
+	}
+	
+}

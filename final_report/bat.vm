@@ -1,0 +1,589 @@
+function bat.upper 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 32
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 1
+add
+push constant 28672
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 48
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 33
+add
+push constant 11264
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 48
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 65
+add
+push constant 9728
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 40
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 97
+add
+push constant 4352
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 44
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 129
+add
+push constant 2176
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 36
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 161
+add
+push constant 2112
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 38
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 193
+add
+push constant 1120
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 194
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 225
+add
+push constant 1072
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 7939
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 257
+add
+push constant 1008
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 2049
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 289
+add
+push constant 24592
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 1537
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 321
+add
+push constant 8208
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 386
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 353
+add
+push constant 6152
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 194
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 385
+add
+push constant 1544
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 122
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 417
+add
+push constant 772
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 100
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 449
+add
+push constant 259
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 36
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 481
+add
+push constant 562
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function bat.lower 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 28
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 1
+add
+push constant 585
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 8
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 33
+add
+push constant 1177
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 8
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 65
+add
+push constant 1302
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 12
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 97
+add
+push constant 3632
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 4
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 129
+add
+push constant 32
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 4
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 161
+add
+push constant 32
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 4
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 193
+add
+push constant 7968
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 4
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 225
+add
+push constant 8416
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 32764
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 257
+add
+push constant 8224
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 20500
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 289
+add
+push constant 8208
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 8200
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 321
+add
+push constant 8208
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 8
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 353
+add
+push constant 5132
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 16
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 385
+add
+push constant 7172
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 16
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 417
+add
+push constant 5122
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 16160
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 449
+add
+push constant 15361
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 16128
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function bat.back 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 28672
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 11264
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 9728
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 4352
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 2176
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 2112
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 1120
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 1072
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 1008
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 24592
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 8208
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 6152
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 1544
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 772
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 259
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 562
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 512
+add
+push constant 585
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 544
+add
+push constant 1177
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 576
+add
+push constant 1302
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 608
+add
+push constant 3632
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 640
+add
+push constant 32
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 672
+add
+push constant 32
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 704
+add
+push constant 7968
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 736
+add
+push constant 8416
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 768
+add
+push constant 8224
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 800
+add
+push constant 8208
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 832
+add
+push constant 8208
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 864
+add
+push constant 5132
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 896
+add
+push constant 7172
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 928
+add
+push constant 5122
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 960
+add
+push constant 15361
+call Memory.poke 2
+pop temp 0
+push constant 0
+return

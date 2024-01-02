@@ -1,0 +1,78 @@
+class rock{
+   function void front(int loc){
+      var int addr;
+      let addr=16384+loc;
+      do Memory.poke(addr+0,-16384);
+      do Memory.poke(addr+32,8192);
+      do Memory.poke(addr+64,8198);
+      do Memory.poke(addr+96,4106);
+      do Memory.poke(addr+128,7186);
+      do Memory.poke(addr+160,1890);
+      do Memory.poke(addr+192,450);
+      do Memory.poke(addr+224,100);
+      do Memory.poke(addr+256,52);
+      do Memory.poke(addr+288,28);
+      do Memory.poke(addr+320,12);
+      do Memory.poke(addr+352,6);
+      do Memory.poke(addr+384,2);
+      do Memory.poke(addr+416,3);
+      do Memory.poke(addr+448,1);
+      do Memory.poke(addr+480,1);
+      do Memory.poke(addr+512,-8135);
+      do Memory.poke(addr+544,-24535);
+      do Memory.poke(addr+576,-24535);
+      do Memory.poke(addr+608,-24535);
+      do Memory.poke(addr+640,-24535);
+      do Memory.poke(addr+672,-24535);
+      do Memory.poke(addr+704,-24535);
+      do Memory.poke(addr+736,-8135);
+      do Memory.poke(addr+768,1);
+      do Memory.poke(addr+800,1);
+      do Memory.poke(addr+832,3);
+      do Memory.poke(addr+864,6);
+      do Memory.poke(addr+896,12);
+      do Memory.poke(addr+928,24);
+      do Memory.poke(addr+960,48);
+      do Memory.poke(addr+992,-32);
+
+      return;
+   }
+
+   function void back(int loc){
+      var int addr;
+      let addr=16384+loc;
+      do Memory.poke(addr+32,24577);
+      do Memory.poke(addr+64,20481);
+      do Memory.poke(addr+96,18434);
+      do Memory.poke(addr+128,17534);
+      do Memory.poke(addr+160,8896);
+      do Memory.poke(addr+192,9102);
+      do Memory.poke(addr+224,11803);
+      do Memory.poke(addr+256,14363);
+      do Memory.poke(addr+288,4302);
+      do Memory.poke(addr+320,12640);
+      do Memory.poke(addr+352,25120);
+      do Memory.poke(addr+384,-15296);
+      do Memory.poke(addr+416,-30592);
+      do Memory.poke(addr+448,-28416);
+      do Memory.poke(addr+480,-26112);
+      do Memory.poke(addr+512,-29696);
+      do Memory.poke(addr+544,32767+1);
+      do Memory.poke(addr+576,32767+1);
+      do Memory.poke(addr+608,32767+1);
+      do Memory.poke(addr+640,32767+1);
+      do Memory.poke(addr+672,32767+1);
+      do Memory.poke(addr+704,32767+1);
+      do Memory.poke(addr+736,32767+1);
+      do Memory.poke(addr+768,-16384);
+      do Memory.poke(addr+800,16384);
+      do Memory.poke(addr+832,24576);
+      do Memory.poke(addr+864,12288);
+      do Memory.poke(addr+896,6144);
+      do Memory.poke(addr+928,3072);
+      do Memory.poke(addr+960,1920);
+      do Memory.poke(addr+992,511);
+
+      return;
+   }
+}

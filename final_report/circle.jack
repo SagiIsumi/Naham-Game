@@ -1,0 +1,12 @@
+class circle{
+    function void new(int x,int y){
+        do Screen.drawRectangle(x+1,y+2,x+9,y+8);
+        do Screen.drawLine(x+4,y,x+6,y);
+        do Screen.drawLine(x+2,y+1,x+8,y+1);
+        do Screen.drawLine(x,y+4,x,y+6);
+        do Screen.drawLine(x+2,y+9,x+8,y+9);
+        do Screen.drawLine(x+4,y+10,x+6,y+10);
+        do Screen.drawLine(x+10,y+4,x+10,y+6);
+        return;
+    }
+}

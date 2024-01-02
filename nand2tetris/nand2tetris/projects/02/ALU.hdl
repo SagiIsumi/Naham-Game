@@ -1,0 +1,79 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/ALU.hdl
+
+/**
+ * The ALU (Arithmetic Logic Unit).
+ * Computes one of the following functions:
+ * x+y, x-y, y-x, 0, 1, -1, x, y, -x, -y, !x, !y,
+ * x+1, y+1, x-1, y-1, x&y, x|y on two 16-bit inputs, 
+ * according to 6 input bits denoted zx,nx,zy,ny,f,no.
+ * In addition, the ALU computes two 1-bit outputs:
+ * if the ALU output == 0, zr is set to 1; otherwise zr is set to 0;
+ * if the ALU output < 0, ng is set to 1; otherwise ng is set to 0.
+ */
+
+// Implementation: the ALU logic manipulates the x and y inputs
+// and operates on the resulting values, as follows:
+// if (zx == 1) set x = 0        // 16-bit constant
+// if (nx == 1) set x = !x       // bitwise not
+// if (zy == 1) set y = 0        // 16-bit constant
+// if (ny == 1) set y = !y       // bitwise not
+// if (f == 1)  set out = x + y  // integer 2's complement addition
+// if (f == 0)  set out = x & y  // bitwise and
+// if (no == 1) set out = !out   // bitwise not
+// if (out == 0) set zr = 1
+// if (out < 0) set ng = 1
+
+CHIP ALU {
+    IN  
+        x[16], y[16],  // 16-bit inputs        
+        zx, // zero the x input?
+        nx, // negate the x input?
+        zy, // zero the y input?
+        ny, // negate the y input?
+        f,  // compute out = x + y (if 1) or x & y (if 0)
+        no; // negate the out output?
+
+    OUT 
+        out[16], // 16-bit output
+        zr, // 1 if (out == 0), 0 otherwise
+        ng; // 1 if (out < 0),  0 otherwise
+
+    PARTS:
+   // Put you code here:
+	Mux16(a=x,b=false,sel=zx,out=z1);
+	Not16(in=z1,out=n1);
+	Mux16(a=z1,b=n1,sel=nx,out=temp1);
+	Mux16(a=y,b=false,sel=zy,out=z2);
+	Not16(in=z2,out=n2);
+	Mux16(a=z2,b=n2,sel=ny,out=temp2);
+	Add16(a=temp1,b=temp2,out=add);
+	And16(a=temp1,b=temp2,out=A);
+	Mux16(a=A,b=add,sel=f,out=temp3);
+	Not16(in=temp3,out=temp4);
+	Mux16(a=temp3,b=temp4,sel=no,out=int);
+	Mux16(a=int,b=true,sel=false,out[0]=t0,out[1]=t1,out[2]=t2,out[3]=t3,out[4]=t4,out[5]=t5,out[6]=t6,
+		out[7]=t7,out[8]=t8,out[9]=t9,out[10]=t10,out[11]=t11,out[12]=t12,out[13]=t13,out[14]=t14,out[15]=t15);
+
+	Or(a=t0,b=t1,out=r1);
+	Or(a=r1,b=t2,out=r2);
+	Or(a=r2,b=t3,out=r3);
+	Or(a=r3,b=t4,out=r4);
+	Or(a=r4,b=t5,out=r5);
+	Or(a=r5,b=t6,out=r6);
+	Or(a=r6,b=t7,out=r7);
+	Or(a=r7,b=t8,out=r8);
+	Or(a=r8,b=t9,out=r9);
+	Or(a=r9,b=t10,out=r10);
+	Or(a=r10,b=t11,out=r11);
+	Or(a=r11,b=t12,out=r12);
+	Or(a=r12,b=t13,out=r13);
+	Or(a=r13,b=t14,out=r14);
+	Or(a=r14,b=t15,out=fin1);
+	And16(a=int,b=true,out=out);
+	Not(in=fin1,out=zr);
+	And(a=t15,b=true,out=ng);
+	
+}

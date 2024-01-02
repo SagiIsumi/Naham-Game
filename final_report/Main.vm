@@ -1,0 +1,93 @@
+function Main.main 5
+push constant 0
+pop local 2
+push constant 0
+call background.setting 1
+pop local 1
+label WHILE_EXP0
+push local 2
+push constant 0
+eq
+not
+if-goto WHILE_END0
+call Keyboard.keyPressed 0
+pop local 2
+push constant 100
+call Sys.wait 1
+pop temp 0
+goto WHILE_EXP0
+label WHILE_END0
+call nhaamgame.new 0
+pop local 0
+push local 0
+call nhaamgame.run 1
+pop temp 0
+call Screen.clearScreen 0
+pop temp 0
+push constant 250
+call Sys.wait 1
+pop temp 0
+push local 0
+call nhaamgame.Report 1
+pop local 4
+push local 4
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 3848
+call gameover.g 1
+pop temp 0
+push constant 3850
+call gameover.a 1
+pop temp 0
+push constant 3852
+call gameover.m 1
+pop temp 0
+push constant 3854
+call gameover.e 1
+pop temp 0
+push constant 3856
+call gameover.o 1
+pop temp 0
+push constant 3858
+call gameover.v 1
+pop temp 0
+push constant 3860
+call gameover.e 1
+pop temp 0
+push constant 3862
+call gameover.r 1
+pop temp 0
+label IF_FALSE0
+push local 4
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 3849
+call gameover.v 1
+pop temp 0
+push constant 3851
+call victory.i 1
+pop temp 0
+push constant 3853
+call victory.c 1
+pop temp 0
+push constant 3855
+call victory.t 1
+pop temp 0
+push constant 3857
+call gameover.o 1
+pop temp 0
+push constant 3859
+call gameover.r 1
+pop temp 0
+push constant 3861
+call victory.y 1
+pop temp 0
+label IF_FALSE1
+push constant 0
+return
